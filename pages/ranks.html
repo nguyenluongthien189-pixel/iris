@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IrisMC - Cửa Hàng VIP</title>
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <a href="../index.html" class="brand-logo">
+                <img src="../assets/logo.png" alt="IrisMC Logo" width="44" height="44">
+                <span class="brand-name">IrisMC</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Trang Chủ</a></li>
+                <li><a href="rules.html" class="nav-link">Luật Lệ</a></li>
+                <li><a href="community.html" class="nav-link">Cộng Đồng</a></li>
+                <li><a href="ranks.html" class="nav-link active">Cửa Hàng VIP</a></li>
+                <li><a href="staff.html" class="nav-link">Đội Ngũ BQT</a></li>
+                <li><a href="faq.html" class="nav-link">Hỏi Đáp</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-ip-pill js-copy-ip" title="Click để chép IP server">
+                    <i class="fa-solid fa-server"></i>
+                    <span>irismc.asia</span>
+                    <i class="fa-regular fa-copy" style="font-size: 0.8rem; margin-left: 4px;"></i>
+                </button>
+                <button class="btn-toggle-menu" aria-label="Mở menu mobile">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div style="padding-top: 100px;"></div>
+
+    <!-- Ranks & VIP Store Showcase -->
+    <section id="ranks" class="section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag"><i class="fa-solid fa-cart-shopping"></i> Cửa Hàng - Quyền Lợi VIP</span>
+                <h2 class="section-title">Ủng Hộ Máy Chủ & Nhận Ưu Đãi VIP</h2>
+                <p class="section-desc">Mọi ủng hộ của bạn giúp máy chủ duy trì hạ tầng mạnh mẽ và phát triển nhiều tính
+                    năng mới.</p>
+            </div>
+
+            <div class="ranks-grid">
+                <!-- Rank 1: Member -->
+                <div class="rank-card rank-member">
+                    <h3 class="rank-name">MEMBER +</h3>
+                    <div class="rank-price">1.000.000$ <span>/ 3 tháng</span></div>
+                    <ul class="rank-features">
+                        <li><i class="fa-solid fa-check" style="color: #94a3b8;"></i> 2 Slot Vault (/pv 1-2)</li>
+                        <li><i class="fa-solid fa-check" style="color: #94a3b8;"></i> 5 Sethome tối đa</li>
+                        <li><i class="fa-solid fa-check" style="color: #94a3b8;"></i> 5 Slot treo bán đơn hàng</li>
+                        <li><i class="fa-solid fa-check" style="color: #94a3b8;"></i> 5 Slot rao bán chợ đen (/ah)</li>
+                    </ul>
+                    <button class="btn-secondary" data-modal="modal-store" style="width: 100%; justify-content: center;">Đăng Ký</button>
+                </div>
+
+                <!-- Rank 2: IRIS -->
+                <div class="rank-card rank-iris">
+                    <h3 class="rank-name">IRIS VIP</h3>
+                    <div class="rank-price">50 Points <span>/ 3 tháng</span></div>
+                    <ul class="rank-features">
+                        <li><i class="fa-solid fa-check" style="color: #eab308;"></i> 4 Slot Vault (/pv 1-4)</li>
+                        <li><i class="fa-solid fa-check" style="color: #eab308;"></i> 7 Sethome tối đa</li>
+                        <li><i class="fa-solid fa-check" style="color: #eab308;"></i> 10 Slot treo bán đơn hàng</li>
+                        <li><i class="fa-solid fa-check" style="color: #eab308;"></i> 10 Slot rao bán chợ đen (/ah)</li>
+                        <li><i class="fa-solid fa-check" style="color: #eab308;"></i> Mở khóa bộ Kit [IRIS]</li>
+                    </ul>
+                    <button class="btn-secondary" data-modal="modal-store" style="width: 100%; justify-content: center;">Đăng Ký</button>
+                </div>
+
+                <!-- Rank 3: IRIS PLUS (Popular) -->
+                <div class="rank-card rank-irisplus popular">
+                    <div class="popular-badge" style="background: #06b6d4;">Khuyên Dùng</div>
+                    <h3 class="rank-name">IRIS VIP+</h3>
+                    <div class="rank-price">100 Points <span>/ 3 tháng</span></div>
+                    <ul class="rank-features">
+                        <li><i class="fa-solid fa-check" style="color: #06b6d4;"></i> 6 Slot Vault (/pv 1-6)</li>
+                        <li><i class="fa-solid fa-check" style="color: #06b6d4;"></i> 10 Sethome tối đa</li>
+                        <li><i class="fa-solid fa-check" style="color: #06b6d4;"></i> 15 Slot treo bán đơn hàng</li>
+                        <li><i class="fa-solid fa-check" style="color: #06b6d4;"></i> 15 Slot rao bán chợ đen (/ah)</li>
+                        <li><i class="fa-solid fa-check" style="color: #06b6d4;"></i> Mở khóa bộ Kit [IRISPLUS]</li>
+                    </ul>
+                    <button class="btn-primary" style="background: #06b6d4; width: 100%; justify-content: center;" data-modal="modal-store">Đăng Ký</button>
+                </div>
+
+                <!-- Rank 4: IRIS GOD -->
+                <div class="rank-card rank-irisgod">
+                    <h3 class="rank-name">IRIS GOD</h3>
+                    <div class="rank-price">200 Points <span>/ 3 tháng</span></div>
+                    <ul class="rank-features">
+                        <li><i class="fa-solid fa-check" style="color: #ef4444;"></i> 8 Slot Vault (/pv 1-8)</li>
+                        <li><i class="fa-solid fa-check" style="color: #ef4444;"></i> 14 Sethome tối đa</li>
+                        <li><i class="fa-solid fa-check" style="color: #ef4444;"></i> 20 Slot treo bán đơn hàng</li>
+                        <li><i class="fa-solid fa-check" style="color: #ef4444;"></i> 20 Slot rao bán chợ đen (/ah)</li>
+                        <li><i class="fa-solid fa-check" style="color: #ef4444;"></i> Mở khóa bộ Kit [IRISGOD]</li>
+                        <li><i class="fa-solid fa-check" style="color: #ef4444;"></i> Lệnh rương phụ /enderchest</li>
+                    </ul>
+                    <button class="btn-secondary" data-modal="modal-store" style="width: 100%; justify-content: center;">Đăng Ký</button>
+                </div>
+
+                <!-- Rank 5: MEDIA -->
+                <div class="rank-card rank-media">
+                    <h3 class="rank-name">MEDIA</h3>
+                    <div class="rank-price">FREE <span>/ 3 tháng</span></div>
+                    <ul class="rank-features">
+                        <li><i class="fa-solid fa-check" style="color: #ec4899;"></i> Quyền lợi tương đương IRIS GOD</li>
+                        <li style="border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 8px; margin-top: 8px; font-weight: 700; color: #ffffff;">Yêu Cầu Tối Thiểu:</li>
+                        <li><i class="fa-solid fa-circle-play" style="color: #ec4899; font-size: 0.8rem;"></i> 10 người xem trên livestream</li>
+                        <li><i class="fa-solid fa-circle-play" style="color: #ec4899; font-size: 0.8rem;"></i> 500 lượt xem trên YouTube</li>
+                        <li><i class="fa-solid fa-circle-play" style="color: #ec4899; font-size: 0.8rem;"></i> 1.000 lượt xem trên TikTok</li>
+                    </ul>
+                    <a href="https://discord.gg/JAzSKUYzag" target="_blank" class="btn-secondary" style="display: flex; justify-content: center; align-items: center; text-decoration: none; width: 100%;">Đăng Ký qua Discord</a>
+                </div>
+
+                <!-- Rank 6: BOOSTER -->
+                <div class="rank-card rank-booster">
+                    <h3 class="rank-name">BOOSTER</h3>
+                    <div class="rank-price">FREE <span>/ Boost</span></div>
+                    <ul class="rank-features">
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Quyền lợi tương đương IRIS VIP+</li>
+                        <li style="border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 8px; margin-top: 8px; font-weight: 700; color: #ffffff;">Yêu Cầu Tối Thiểu:</li>
+                        <li><i class="fa-solid fa-circle-nodes" style="color: #a855f7; font-size: 0.8rem;"></i> Boost server Discord x2 lần</li>
+                    </ul>
+                    <a href="https://discord.gg/JAzSKUYzag" target="_blank" class="btn-secondary" style="display: flex; justify-content: center; align-items: center; text-decoration: none; width: 100%;">Đăng Ký qua Discord</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="brand-logo">
+                        <img src="../assets/logo.png" alt="IrisMC Logo" width="36" height="36">
+                        <span class="brand-name">IrisMC</span>
+                    </a>
+                    <p>Máy chủ Minecraft Việt Nam với phong cách thần thoại tím nhạt tuyệt đẹp. Nơi hội tụ của những
+                        game thủ đam mê Minecraft sáng tạo & PvP đỉnh cao.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Điều Hướng</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Trang Chủ</a></li>
+                        <li><a href="rules.html">Luật Lệ</a></li>
+                        <li><a href="community.html">Cộng Đồng</a></li>
+                        <li><a href="ranks.html">Cửa Hàng VIP</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Khác</h4>
+                    <ul class="footer-links">
+                        <li><a href="staff.html">Đội Ngũ BQT</a></li>
+                        <li><a href="faq.html">Hỏi Đáp</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Kết Nối Server</h4>
+                    <ul class="footer-links">
+                        <li>IP Java: <code>irismc.asia</code></li>
+                        <li>phiên bản 1.20.x - 1.21.x</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 IrisMC Network. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal 2: Rank Store / Recharge -->
+    <div id="modal-store" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="modal-title"><i class="fa-solid fa-credit-card" style="color: var(--purple-primary);"></i> Nạp
+                Thẻ & Đăng Ký VIP</h3>
+            <div style="color: var(--text-muted); line-height: 1.8;">
+                <p style="margin-bottom: 1rem;">Cảm ơn bạn đã hỗ trợ máy chủ <strong>IrisMC</strong>! Bạn có thể nạp
+                    xu/mua rank qua các phương thức sau:</p>
+                <div
+                    style="background: rgba(192, 132, 252, 0.1); border: 1px solid var(--border-purple); padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                    <div style="color: #ffffff; font-weight: 700; margin-bottom: 6px;"><i class="fa-solid fa-qrcode"
+                            style="color: var(--purple-primary);"></i> Chuyển Khoản Ngân Hàng / Ví Điện Tử MoMo</div>
+                    <div style="font-size: 0.9rem;">Hệ thống tự động cộng Xu & kích hoạt Rank VIP trong 1-3 phút.</div>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="https://discord.gg/JAzSKUYzag" target="_blank" class="btn-primary"
+                        style="flex: 1; justify-content: center;">
+                        <i class="fa-brands fa-discord"></i> Mua qua Discord
+                    </a>
+                    <button class="btn-secondary js-modal-close" style="flex: 1; justify-content: center;">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
