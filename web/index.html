@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IrisMC Network - Máy Chủ Minecraft Tiên Tiến Việt Nam (irismc.asia)</title>
+  <meta name="description" content="Máy chủ Minecraft IrisMC - irismc.asia. Hỗ trợ Survival 1.20+, Skyblock, Towny, KitPvP. Chơi mượt mà trên Java & Bedrock Edition (PE). Tham gia ngay!">
+  <meta name="keywords" content="IrisMC, irismc.asia, minecraft server viet nam, server survival 1.20, skyblock, towny, minecraft pe viet nam, onemc">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="IrisMC Network - Máy Chủ Minecraft Việt Nam (irismc.asia)">
+  <meta property="og:description" content="Trải nghiệm Minecraft đỉnh cao cùng cộng đồng IrisMC. Hỗ trợ PC Java & Điện thoại Bedrock. Nạp thẻ tự động 24/7.">
+  <meta property="og:image" content="https://mc-heads.net/avatar/Steve/128">
+  <meta property="og:url" content="https://irismc.asia">
+
+  <!-- Favicon & Stylesheets -->
+  <link rel="icon" type="image/png" href="https://mc-heads.net/avatar/Steve/64">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 3D Minecraft Skin Viewer Library -->
+  <script src="https://cdn.jsdelivr.net/npm/skinview3d@3.0.1/bundles/skinview3d.bundle.js"></script>
+  <!-- LiteBans Data Driver -->
+  <script src="api/litebans_data.js"></script>
+</head>
+<body>
+
+  <!-- Particle Stars Canvas Backdrop -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="main-navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="logo-brand" id="nav-logo">
+        <div class="logo-icon">I</div>
+        <div class="logo-text">Iris<span>MC</span></div>
+      </a>
+
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#hero" class="nav-link active" id="link-hero">Trang chủ</a></li>
+        <li><a href="#gamemodes" class="nav-link" id="link-gamemodes">Máy chủ</a></li>
+        <li><a href="#staff" class="nav-link" id="link-staff">Đội ngũ</a></li>
+        <li><a href="#litebans" class="nav-link" id="link-litebans">Xử phạt (LiteBans)</a></li>
+        <li><a href="#rules" class="nav-link" id="link-rules">Luật lệ</a></li>
+        <li><a href="#contact" class="nav-link" id="link-contact">Liên hệ</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="btn btn-gold" id="btn-open-store-modal">
+          <i class="fa-solid fa-credit-card"></i> Web Nạp Thẻ
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        
+        <!-- Server Live Status Badge -->
+        <div class="status-badge" id="server-status-badge">
+          <span class="status-dot online" id="status-dot"></span>
+          <span id="status-text">Đang kết nối tới máy chủ irismc.asia...</span>
+        </div>
+
+        <h1 class="hero-title">
+          MÁY CHỦ <span class="gradient-text">IRISMC NETWORK</span><br>
+          CHUẨN MINECRAFT 1.20+ VIỆT NAM
+        </h1>
+        
+        <p class="hero-description">
+          Khám phá thế giới Minecraft tuyệt đẹp, sinh tồn <strong>Survival SMP 1.20+</strong>, <strong>Skyblock Tiến Hoá</strong>, <strong>Towny Quốc Gia</strong> và <strong>KitPvP</strong>. Chơi chung mượt mà giữa máy tính (Java) & điện thoại (Bedrock/PE)!
+        </p>
+
+        <!-- DUAL SERVER IP BOXES -->
+        <div class="ip-boxes-grid">
+          
+          <!-- Java IP Box -->
+          <div class="server-ip-card" id="java-ip-card">
+            <div class="ip-card-icon"><i class="fa-solid fa-desktop"></i></div>
+            <div class="ip-card-info">
+              <div class="ip-edition-tag">Dành cho PC (Java Edition)</div>
+              <div class="ip-address-text">irismc.asia</div>
+              <div class="ip-sub-info">Phiên bản 1.16.5 &rarr; 1.20.x</div>
+            </div>
+            <button class="btn btn-copy copy-ip-btn" data-ip="irismc.asia" id="btn-copy-java">
+              <i class="fa-solid fa-copy"></i> Sao Chép IP
+            </button>
+          </div>
+
+          <!-- Bedrock / Mobile IP Box -->
+          <div class="server-ip-card bedrock" id="bedrock-ip-card">
+            <div class="ip-card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div class="ip-card-info">
+              <div class="ip-edition-tag">Dành cho Mobile (Bedrock / PE)</div>
+              <div class="ip-address-text">irismc.asia <span class="port-tag">Port: 19132</span></div>
+              <div class="ip-sub-info">iOS / Android / Win10</div>
+            </div>
+            <button class="btn btn-copy copy-ip-btn" data-ip="irismc.asia" data-port="19132" id="btn-copy-bedrock">
+              <i class="fa-solid fa-copy"></i> Sao Chép IP + Port
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Quick Stats Banner -->
+        <div class="hero-quick-stats">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div>
+              <div class="stat-number gradient-text" id="hero-online-count">185 / 500</div>
+              <div class="stat-label">Đang Trực Tuyến</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <div class="stat-number gradient-text">Ping 15ms</div>
+              <div class="stat-label">Host Việt Nam</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MÁY CHỦ & GAMEMODES SECTION -->
+  <section class="section" id="gamemodes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">— MÁY CHỦ —</span>
+        <h2 class="section-title">CHẾ ĐỘ CHƠI NỔI BẬT</h2>
+        <p class="section-subtitle">IrisMC tập trung mang đến trải nghiệm PvP & Sinh Tồn Kiếm mượt mà đỉnh cao nhất.</p>
+      </div>
+
+      <div class="gamemodes-twins-grid">
+        
+        <!-- Gamemode 1: PracticeSW -->
+        <div class="gamemode-twin-card practice">
+          <h3 class="twin-title">PracticeSW</h3>
+          <div class="twin-subtitle green">Practice PvP kiếm • Xếp hạng</div>
+          
+          <ul class="twin-checklist">
+            <li><i class="fa-solid fa-check"></i> Đấu 1v1 / FFA</li>
+            <li><i class="fa-solid fa-check"></i> Bảng xếp hạng ELO</li>
+            <li><i class="fa-solid fa-check"></i> Kit Edit tuỳ chỉnh</li>
+            <li><i class="fa-solid fa-check"></i> Lập team, thi đấu clan</li>
+            <li><i class="fa-solid fa-check"></i> Sảnh luyện tập riêng</li>
+            <li><i class="fa-solid fa-check"></i> Không mất đồ khi thua</li>
+          </ul>
+        </div>
+
+        <!-- Gamemode 2: SwordSMP -->
+        <div class="gamemode-twin-card sword">
+          <h3 class="twin-title">SwordSMP</h3>
+          <div class="twin-subtitle blue">Sinh tồn kiếm • PvP thuần</div>
+          
+          <ul class="twin-checklist">
+            <li><i class="fa-solid fa-check"></i> Sinh tồn kiếm</li>
+            <li><i class="fa-solid fa-check"></i> PvP thuần</li>
+            <li><i class="fa-solid fa-check"></i> Crystal bị vô hiệu hoá</li>
+            <li><i class="fa-solid fa-check"></i> Vanilla+</li>
+            <li><i class="fa-solid fa-check"></i> Có nền kinh tế</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LITEBANS PENALTIES & BAN LIST SECTION -->
+  <section class="section" id="litebans" style="background: rgba(15, 23, 42, 0.5);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Hệ Thống LiteBans</span>
+        <h2 class="section-title">DANH SÁCH XỬ LÝ VI PHẠM (LITEBANS)</h2>
+        <p class="section-subtitle">Hệ thống ghi nhận hình phạt tự động 24/7 đối với các trường hợp vi phạm quy định máy chủ IrisMC.</p>
+      </div>
+
+      <!-- LiteBans Stats Summary Bar -->
+      <div class="litebans-stats-grid">
+        <div class="lb-stat-card danger">
+          <div class="lb-stat-icon"><i class="fa-solid fa-ban"></i></div>
+          <div>
+            <div class="lb-stat-num" id="lb-count-bans">1,248</div>
+            <div class="lb-stat-label">Tổng Lệnh Ban</div>
+          </div>
+        </div>
+
+        <div class="lb-stat-card warning">
+          <div class="lb-stat-icon"><i class="fa-solid fa-volume-xmark"></i></div>
+          <div>
+            <div class="lb-stat-num" id="lb-count-mutes">482</div>
+            <div class="lb-stat-label">Lệnh Mute Chat</div>
+          </div>
+        </div>
+
+        <div class="lb-stat-card info">
+          <div class="lb-stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div>
+            <div class="lb-stat-num" id="lb-count-warns">890</div>
+            <div class="lb-stat-label">Cảnh Báo (Warns)</div>
+          </div>
+        </div>
+
+        <div class="lb-stat-card active-card">
+          <div class="lb-stat-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <div class="lb-stat-num" id="lb-count-active">42</div>
+            <div class="lb-stat-label">Đang Thi Hành</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="tab-buttons">
+        <button class="lb-filter-tab-btn active" data-filter="all"><i class="fa-solid fa-list"></i> Tất Cả Hình Phạt</button>
+        <button class="lb-filter-tab-btn" data-filter="ban"><i class="fa-solid fa-ban"></i> Lệnh Ban (Bans)</button>
+        <button class="lb-filter-tab-btn" data-filter="mute"><i class="fa-solid fa-volume-xmark"></i> Lệnh Mute</button>
+        <button class="lb-filter-tab-btn" data-filter="warn"><i class="fa-solid fa-triangle-exclamation"></i> Cảnh Báo (Warns)</button>
+        <button class="lb-filter-tab-btn" data-filter="kick"><i class="fa-solid fa-door-open"></i> Lệnh Kick</button>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="litebans-search-container">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="litebans-search-input" placeholder="Tìm kiếm theo Tên Ingame, Staff xử lý hoặc Lý do vi phạm...">
+        </div>
+      </div>
+
+      <!-- LiteBans Penalties Table -->
+      <div class="table-responsive">
+        <table class="leaderboard-table litebans-table">
+          <thead>
+            <tr>
+              <th>Người Vi Phạm</th>
+              <th>Loại Hình Phạt</th>
+              <th>Lý Do Chi Tiết</th>
+              <th>Staff Xử Lý</th>
+              <th>Thời Gian Hạn Định</th>
+              <th>Trạng Thái</th>
+            </tr>
+          </thead>
+          <tbody id="litebans-table-body">
+            <!-- Populated dynamically by script.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ĐỘI NGŨ STAFF TEAM SECTION -->
+  <section class="section" id="staff">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">— ĐỘI NGŨ —</span>
+        <h2 class="section-title">Những người đứng sau IrisMC</h2>
+        <p class="section-subtitle">Một đội ngũ nhỏ, trực tiếp làm và trực tiếp chịu trách nhiệm cho mọi thứ bạn thấy ở đây.</p>
+      </div>
+
+      <div class="onemc-staff-grid">
+        
+        <!-- Staff 1: Yaanghi -->
+        <div class="onemc-staff-card">
+          <div class="skin-viewport-box" id="viewport-yaanghi">
+            <canvas class="skin-3d-canvas" id="skin-canvas-yaanghi"></canvas>
+            <img class="full-skin-img fallback-skin" src="https://mc-heads.net/body/Yaanghi/200" alt="Yaanghi Skin" onerror="this.src='https://mc-heads.net/body/Steve/200'">
+          </div>
+          
+          <h3 class="onemc-staff-name">Yaanghi</h3>
+          
+          <div class="staff-pill-badges">
+            <span class="pill-badge gold">Owner</span>
+            <span class="pill-badge dark">System Administrator</span>
+          </div>
+
+          <p class="onemc-staff-desc">
+            Quản lý toàn bộ hệ thống kỹ thuật, phát triển IrisShield và hạ tầng máy chủ.
+          </p>
+
+          <div class="staff-action-btns">
+            <a href="#contact" class="btn btn-purple-glow">Xem hồ sơ &rarr;</a>
+            <a href="#contact" class="btn btn-dark-glass">Liên hệ</a>
+          </div>
+        </div>
+
+        <!-- Staff 2: SnightMC -->
+        <div class="staff-card onemc-staff-card">
+          <div class="skin-viewport-box" id="viewport-snightmc">
+            <canvas class="skin-3d-canvas" id="skin-canvas-snightmc"></canvas>
+            <img class="full-skin-img fallback-skin" src="https://mc-heads.net/body/SnightMC/200" alt="SnightMC Skin" onerror="this.src='https://mc-heads.net/body/Alex/200'">
+          </div>
+
+          <h3 class="onemc-staff-name">SnightMC</h3>
+
+          <div class="staff-pill-badges">
+            <span class="pill-badge gold">Owner</span>
+            <span class="pill-badge dark">Media</span>
+            <span class="pill-badge dark">Designer</span>
+          </div>
+
+          <p class="onemc-staff-desc">
+            Builder, Designer, truyền thông, quảng bá và TikToker.
+          </p>
+
+          <div class="staff-action-btns">
+            <a href="#contact" class="btn btn-purple-glow">Xem hồ sơ &rarr;</a>
+            <a href="https://tiktok.com" target="_blank" class="btn btn-dark-glass">TikTok</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LUẬT LỆ SECTION -->
+  <section class="section" id="rules" style="background: rgba(15, 23, 42, 0.5);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nội Quy Máy Chủ</span>
+        <h2 class="section-title">LUẬT LỆ & QUY ĐỊNH IRISMC</h2>
+        <p class="section-subtitle">Vui lòng đọc kỹ và tuân thủ các quy định dưới đây để xây dựng cộng đồng game công bằng, văn minh.</p>
+      </div>
+
+      <div class="rules-grid">
+        
+        <!-- Rule 1 -->
+        <div class="rule-card">
+          <div class="rule-header">
+            <div class="rule-icon danger"><i class="fa-solid fa-ban"></i></div>
+            <div>
+              <h4 class="rule-title">1. Nghiêm Cấm Gian Lận & Hack Mod</h4>
+              <span class="rule-severity high">Hình phạt: BAN IP VĨNH VIỄN</span>
+            </div>
+          </div>
+          <p class="rule-body">
+            Nghiêm cấm tuyệt đối mọi phần mềm/modpack gian lận bao gồm: Auto-Clicker, X-Ray, Fly, KillAura, FastPlace, Speed. Hệ thống IrisShield Anti-Cheat sẽ tự động phát hiện và khóa tài khoản vĩnh viễn không cần báo trước.
+          </p>
+        </div>
+
+        <!-- Rule 2 -->
+        <div class="rule-card">
+          <div class="rule-header">
+            <div class="rule-icon warning"><i class="fa-solid fa-comments"></i></div>
+            <div>
+              <h4 class="rule-title">2. Văn Hoá Chat & Ứng Xử</h4>
+              <span class="rule-severity medium">Hình phạt: Mute 1 ngày &rarr; Ban 7 ngày</span>
+            </div>
+          </div>
+          <p class="rule-body">
+            Cấm xúc phạm gia đình, miệt thị vùng miền, sử dụng từ ngữ thô tục, chửi thề tục tĩu ở kênh chat chung. Nghiêm cấm quảng cáo server Minecraft khác hoặc phát tán link độc hại/đổi tiền real.
+          </p>
+        </div>
+
+        <!-- Rule 3 -->
+        <div class="rule-card">
+          <div class="rule-header">
+            <div class="rule-icon primary"><i class="fa-solid fa-user-lock"></i></div>
+            <div>
+              <h4 class="rule-title">3. Bảo Vệ Tài Khoản & Cấm Scam</h4>
+              <span class="rule-severity high">Hình phạt: Ban vĩnh viễn tài sản scam</span>
+            </div>
+          </div>
+          <p class="rule-body">
+            Cấm lừa đảo (Scam) tài sản, vật phẩm in-game của người chơi khác dưới mọi hình thức. Người chơi tự chịu trách nhiệm bảo mật mật khẩu tài khoản (dùng mật khẩu mạnh). Mạo danh Admin/Staff sẽ bị khóa IP ngay lập tức.
+          </p>
+        </div>
+
+        <!-- Rule 4 -->
+        <div class="rule-card">
+          <div class="rule-header">
+            <div class="rule-icon info"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div>
+              <h4 class="rule-title">4. Quy Định Land Claim & Bug Game</h4>
+              <span class="rule-severity medium">Hình phạt: Xoá land & Mất vật phẩm</span>
+            </div>
+          </div>
+          <p class="rule-body">
+            Cấm bao quanh đất (Claim griefing) để ngăn cản người chơi khác mở rộng nhà. Cấm lợi dụng các lỗi (Bug/Glitch) dupe đồ hoặc làm sập server. Khi phát hiện Bug vui lòng báo Admin để nhận thưởng Coins!
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIÊN HỆ SECTION -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Hỗ Trợ Trực Tuyến</span>
+        <h2 class="section-title">LIÊN HỆ & BAN QUẢN TRỊ</h2>
+        <p class="section-subtitle">Bạn cần giải đáp thắc mắc, nạp thẻ hay tố cáo vi phạm? Đội ngũ IrisMC luôn sẵn sàng hỗ trợ 24/7.</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Contact Methods Column -->
+        <div class="contact-info-col">
+          
+          <div class="contact-channel-card">
+            <div class="channel-icon discord"><i class="fa-brands fa-discord"></i></div>
+            <div class="channel-info">
+              <h4>Kênh Discord Chính Thức</h4>
+              <p>Tạo Ticket hỗ trợ khẩn cấp, nhận thông báo update và sự kiện Giveaway VIP!</p>
+              <a href="https://discord.gg" target="_blank" class="btn btn-primary btn-sm" style="margin-top: 8px;">
+                <i class="fa-brands fa-discord"></i> Tham Gia Discord (5,000+ Mem)
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-channel-card">
+            <div class="channel-icon facebook"><i class="fa-brands fa-facebook-f"></i></div>
+            <div class="channel-info">
+              <h4>Fanpage Facebook IrisMC</h4>
+              <p>Cập nhật tin tức hàng ngày, nhắn tin trực tiếp cho Admin qua Messenger.</p>
+              <a href="https://facebook.com" target="_blank" class="btn btn-secondary btn-sm" style="margin-top: 8px;">
+                <i class="fa-brands fa-facebook-messenger"></i> Nhắn Tin Messenger
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-channel-card">
+            <div class="channel-icon email"><i class="fa-solid fa-envelope"></i></div>
+            <div class="channel-info">
+              <h4>Email Hợp Tác & Hỗ Trợ</h4>
+              <p>Email: <strong class="gold">support@irismc.asia</strong> | Phù hợp cho đề nghị hợp tác Media/YouTuber.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Contact Support Form Column -->
+        <div class="contact-form-col">
+          <form class="contact-form" id="support-contact-form" onsubmit="event.preventDefault(); submitSupportForm();">
+            <h3><i class="fa-solid fa-paper-plane"></i> GỬI TIN NHẮN HỖ TRỢ</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">Gửi tin nhắn trực tiếp cho ban quản trị, chúng tôi sẽ phản hồi qua Discord/Email trong 15 phút.</p>
+
+            <div class="form-group">
+              <label for="contact-name">Tên Ingame / Họ Tên <span class="required">*</span></label>
+              <input type="text" id="contact-name" placeholder="Ví dụ: Steve_VN" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Địa Chỉ Email / Discord Tag <span class="required">*</span></label>
+              <input type="text" id="contact-email" placeholder="Ví dụ: user#1234 hoặc email@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-topic">Chủ Đề Cần Hỗ Trợ</label>
+              <select id="contact-topic">
+                <option value="account">Quên Mật Khẩu / Lỗi Tài Khoản</option>
+                <option value="store">Nạp Thẻ / Chưa Nhận Được Coins</option>
+                <option value="report">Tố Cáo Hack / Violations</option>
+                <option value="media">Đăng Ký Media / YouTuber</option>
+                <option value="other">Thắc Mắc Khác</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Nội Dung Chi Tiết <span class="required">*</span></label>
+              <textarea id="contact-message" rows="4" placeholder="Mô tả chi tiết vấn đề bạn đang gặp phải..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%;">
+              <i class="fa-solid fa-paper-plane"></i> GỬI YÊU CẦU HỖ TRỢ
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES & SECURITY SECTION (IRIS SHIELD) -->
+  <section class="section" id="features" style="background: rgba(15, 23, 42, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Công Nghệ & Bảo Mật</span>
+        <h2 class="section-title">HỆ THỐNG MÁY CHỦ IRISSHIELD</h2>
+        <p class="section-subtitle">Được đầu tư hạ tầng phần cứng hiện đại hàng đầu Việt Nam mang lại trải nghiệm 0% giật lag.</p>
+      </div>
+
+      <div class="features-grid">
+        
+        <div class="feature-box" id="feat-shield">
+          <div class="feature-icon"><i class="fa-solid fa-shield-virus"></i></div>
+          <h4 class="feature-title">IrisShield Anti-DDoS</h4>
+          <p class="feature-desc">Hệ thống tường lửa thông minh tự phát triển giúp chống tấn công DDoS 10Gbps, đảm bảo máy chủ hoạt động 99.9% uptime.</p>
+        </div>
+
+        <div class="feature-box" id="feat-crossplay">
+          <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h4 class="feature-title">Crossplay Java & Bedrock</h4>
+          <p class="feature-desc">Tự do kết nối và chơi chung giữa máy tính (PC Java) và điện thoại (Android, iOS PE) trong cùng một thế giới.</p>
+        </div>
+
+        <div class="feature-box" id="feat-anticheat">
+          <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+          <h4 class="feature-title">Chống Gian Lận 24/7</h4>
+          <p class="feature-desc">Hệ thống Anti-Cheat và Anti X-Ray cấp cao tự động chặn hack, phát hiện phần mềm gian lận giữ sự công bằng tuyệt đối.</p>
+        </div>
+
+        <div class="feature-box" id="feat-ping">
+          <div class="feature-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+          <h4 class="feature-title">Host VN Ping Siêu Thấp</h4>
+          <p class="feature-desc">Máy chủ vật lý đặt tại Datacenter Viettel IDC Hà Nội, băng thông tốc độ cao 10Gbps cho độ trễ cực thấp (10-20ms).</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <a href="#hero" class="logo-brand">
+            <div class="logo-icon">I</div>
+            <div class="logo-text">Iris<span>MC</span></div>
+          </a>
+          <p>IrisMC Network - Máy chủ Minecraft Việt Nam đỉnh cao với lối chơi Survival 1.20+, Skyblock Tiến Hóa và cộng đồng sôi nổi.</p>
+          <div class="social-links">
+            <a href="https://discord.gg" target="_blank" class="social-btn" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://tiktok.com" target="_blank" class="social-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Điều Hướng Nhanh</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Trang chủ</a></li>
+            <li><a href="#gamemodes">Máy chủ</a></li>
+            <li><a href="#staff">Đội ngũ</a></li>
+            <li><a href="#rules">Luật lệ</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+            <li><a href="#store">Web Nạp Thẻ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Thông Tin Kết Nối</h4>
+          <ul class="footer-links">
+            <li>IP Java: <strong class="gold">irismc.asia</strong></li>
+            <li>IP Bedrock: <strong class="gold">irismc.asia</strong></li>
+            <li>Port Bedrock: <strong class="gold">19132</strong></li>
+            <li>Phiên bản: <strong>1.16.5 &rarr; 1.20.x</strong></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Tham Gia Discord</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Tham gia ngay cộng đồng hơn 5,000+ thành viên để nhận quà tặng Code VIP hàng tuần!
+          </p>
+          <a href="https://discord.gg" target="_blank" class="btn btn-primary" style="width: 100%;">
+            <i class="fa-brands fa-discord"></i> VÀO DISCORD IRISMC
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 IrisMC Network (irismc.asia). All Rights Reserved. Not affiliated with Mojang Studios.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WEB STORE / NẠP THẺ MODAL POPUP -->
+  <div class="modal-backdrop" id="store-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-title-icon"><i class="fa-solid fa-credit-card"></i></div>
+        <div>
+          <h3>CỔNG NẠP THẺ & UNG HỘ IRISMC</h3>
+          <p>Tự động 24/7 - Khuyến mãi <strong>+20% Coins</strong> cho mọi giao dịch</p>
+        </div>
+      </div>
+
+      <!-- Store Modal Tabs -->
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" data-modaltab="banking" id="mtab-banking">
+          <i class="fa-solid fa-qrcode"></i> Chuyển Khoản Banking / Momo (VietQR)
+        </button>
+        <button class="modal-tab-btn" data-modaltab="card" id="mtab-card">
+          <i class="fa-solid fa-ticket"></i> Nạp Thẻ Cào (Viettel/Vina/Mobi/Zing)
+        </button>
+      </div>
+
+      <!-- Modal Tab 1: Banking & VietQR -->
+      <div class="modal-tab-content active" id="mcontent-banking">
+        <div class="banking-grid">
+          
+          <div class="banking-form-col">
+            <div class="form-group">
+              <label for="bank-ingame-name">Tên Nhân Vật Ingame <span class="required">*</span></label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="bank-ingame-name" placeholder="Ví dụ: Steve_VN" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bank-amount-select">Số Tiền Muốn Nạp (VNĐ)</label>
+              <select id="bank-amount-select">
+                <option value="20000">20,000 VNĐ (+24,000 Coins)</option>
+                <option value="50000" selected>50,000 VNĐ (+60,000 Coins)</option>
+                <option value="100000">100,000 VNĐ (+120,000 Coins)</option>
+                <option value="200000">200,000 VNĐ (+240,000 Coins)</option>
+                <option value="500000">500,000 VNĐ (+600,000 Coins)</option>
+              </select>
+            </div>
+
+            <div class="form-info-box">
+              <div class="info-row">
+                <span>Nội Dung Chuyển Khoản:</span>
+                <strong id="display-transfer-memo" class="gold">NAP IRISMC STEVE_VN</strong>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="btn-copy-memo" style="margin-top: 8px; width: 100%;">
+                <i class="fa-solid fa-copy"></i> Sao Chép Nội Dung Chuyển Khoản
+              </button>
+            </div>
+          </div>
+
+          <div class="banking-qr-col">
+            <div class="qr-preview-box">
+              <img id="vietqr-img" src="https://api.vietqr.io/image/970422-0988888888-compact2.png?amount=50000&addInfo=NAP%20IRISMC%20STEVE_VN" alt="Mã QR VietQR Banking">
+              <div class="qr-subtext">Quét mã bằng app Ngân Hàng hoặc Momo</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Modal Tab 2: Thẻ Cào -->
+      <div class="modal-tab-content" id="mcontent-card">
+        <form id="card-topup-form" onsubmit="event.preventDefault(); submitCardTopup();">
+          
+          <div class="form-group">
+            <label for="card-ingame-name">Tên Nhân Vật Ingame <span class="required">*</span></label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="card-ingame-name" placeholder="Nhập chính xác tên trong game" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="card-telco">Loại Thẻ Cào</label>
+              <select id="card-telco">
+                <option value="VIETTEL">Viettel</option>
+                <option value="VINAPHONE">Vinaphone</option>
+                <option value="MOBIFONE">Mobifone</option>
+                <option value="ZING">Zing Card</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="card-amount">Mệnh Giá Thẻ</label>
+              <select id="card-amount">
+                <option value="10000">10,000 VNĐ</option>
+                <option value="20000">20,000 VNĐ</option>
+                <option value="50000" selected>50,000 VNĐ</option>
+                <option value="100000">100,000 VNĐ</option>
+                <option value="200000">200,000 VNĐ</option>
+                <option value="500000">500,000 VNĐ</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="card-pin">Mã Thẻ Cào (PIN) <span class="required">*</span></label>
+            <input type="text" id="card-pin" placeholder="Nhập mã số sau lớp cào" required>
+          </div>
+
+          <div class="form-group">
+            <label for="card-seri">Số Seri Thẻ <span class="required">*</span></label>
+            <input type="text" id="card-seri" placeholder="Nhập số seri in trên thẻ" required>
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
+            <i class="fa-solid fa-paper-plane"></i> XÁC NHẬN NẠP THẺ
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-message">Đã sao chép IP thành công!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
